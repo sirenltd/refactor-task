@@ -9,10 +9,10 @@ class BazSender extends Sender
     /**
      * Sends data to the Baz crm
      *
-     * @param array $data
+     * @param Entity $entity
      * @return int
      */
-    public function send(array $data)
+    public function send(Entity $entity): int
     {
         //@todo Do not implement a logic for send specifically. Imagine that it's here.
 
