@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App;
 
-use InvalidArgumentException;
+use App\Crms\CrmSenderFactory;
+use App\Crms\CrmSenderInterface;
+use App\Crms\Enums\CrmNameEnum;
+use App\Crms\SendDataToCrm\SendDataToCrmInterface;
 
 /**
  * Class CrmManager
@@ -12,37 +15,15 @@ use InvalidArgumentException;
  */
 class CrmManager
 {
-    private BazSender $client;
+    private CrmSenderInterface $client;
 
-    /**
-     * @var array
-     */
-    private $settings;
-
-    public function __construct(array $settings)
+    public function __construct(CrmNameEnum $crmNameEnum, array $settings)
     {
-        if (empty($settings['user'])) {
-            throw new InvalidArgumentException('User must be set!');
-        }
-
-        if (empty($settings['passwd'])) {
-            throw new InvalidArgumentException('Password must be set!');
-        }
-
-        $this->settings = $settings;
-        $this->client = new BazSender();
+        $this->client = CrmSenderFactory::createSender($crmNameEnum, $settings);
     }
 
-    /**
-     * Sends the person to a crm
-     *
-     * @param array $clientEntity
-     * @return int
-     */
-    public function sendPerson(array $clientEntity): int
+    public function sendToCrm(SendDataToCrmInterface $data)
     {
-        $this->client->setCredentials($this->settings);
-
-        return $this->client->send($clientEntity);
+        return $this->client->send($data);
     }
 }
