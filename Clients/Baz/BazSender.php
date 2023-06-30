@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Clients\Baz;
+use App\Clients\Sender;
 
 class BazSender extends Sender
 {
@@ -12,7 +13,7 @@ class BazSender extends Sender
      * @param array $data
      * @return int
      */
-    public function send(array $data)
+    public function send(array $data): int
     {
         //@todo Do not implement a logic for send specifically. Imagine that it's here.
 
