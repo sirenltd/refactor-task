@@ -8,6 +8,14 @@ class CredentialsDto
     protected string $password;
     public function __construct(string $user, string $password)
     {
+        if ($user == '') {
+            throw new InvalidArgumentException('User must be set!');
+        }
+
+        if ($password == '') {
+            throw new InvalidArgumentException('Password must be set!');
+        }
+
         $this->user = $user;
         $this->password = $password;
     }

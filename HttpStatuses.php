@@ -3,5 +3,5 @@
 namespace App;
 
 class  HttpStatuses {
-    const HTTP_STATE_OK  = 200;
+    const HTTP_STATUS_OK  = 200;
 }

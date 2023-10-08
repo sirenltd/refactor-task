@@ -19,6 +19,6 @@ class BazSender extends Sender
     {
         //@todo Do not implement a logic for send specifically. Imagine that it's here.
 
-        return \HttpStatuses::HTTP_STATE_OK;
+        return \HttpStatuses::HTTP_STATUS_OK;
     }
 }
