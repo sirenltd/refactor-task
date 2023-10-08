@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace App;
 
+/**
+ * One of the strategies of realization Sender class
+ */
 class BazSender extends Sender
 {
     /**
      * Sends data to the Baz crm
      *
      * @param array $data
-     * @return int
+     * @return int HTTPStatus
      */
-    public function send(array $data)
+    public function send(array $data): int
     {
         //@todo Do not implement a logic for send specifically. Imagine that it's here.
 
-        return 200;
+        return \HttpStatuses::HTTP_STATUS_OK;
     }
 }

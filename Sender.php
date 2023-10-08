@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App;
 
-final class Sender
+abstract class Sender
 {
-    protected array $settings;
+    protected CredentialsDto $settings;
 
-    public function setCredentials(array $settings)
+    public function setCredentials(CredentialsDto $settings)
     {
         $this->settings = $settings;
     }
+
+    abstract function send(array $data): int;
 }
