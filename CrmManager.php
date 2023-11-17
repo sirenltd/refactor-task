@@ -4,45 +4,24 @@ declare(strict_types=1);
 
 namespace App;
 
-use InvalidArgumentException;
+use App\Entity\Client as ClientEntity;
 
 /**
  * Class CrmManager
  * @package App
  */
-class CrmManager
+readonly class CrmManager implements CrmManagerInterface
 {
-    private BazSender $client;
 
-    /**
-     * @var array
-     */
-    private $settings;
-
-    public function __construct(array $settings)
+    public function __construct(private Sender $client)
     {
-        if (empty($settings['user'])) {
-            throw new InvalidArgumentException('User must be set!');
-        }
-
-        if (empty($settings['passwd'])) {
-            throw new InvalidArgumentException('Password must be set!');
-        }
-
-        $this->settings = $settings;
-        $this->client = new BazSender();
     }
 
     /**
      * Sends the person to a crm
-     *
-     * @param array $clientEntity
-     * @return int
      */
-    public function sendPerson(array $clientEntity): int
+    public function sendPerson(ClientEntity $clientEntity): int
     {
-        $this->client->setCredentials($this->settings);
-
         return $this->client->send($clientEntity);
     }
 }
