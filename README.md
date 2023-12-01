@@ -10,3 +10,8 @@ Review the code as thoroughly as possible. Make suggestions for improvements if 
 
 The solution must be in the form of a Google Docs link. 
 Providing the solution in the correct form is one of the evaluation criteria.
+
+**Notes:**
+
+Every CRM Manger will implement the CRMInterface
+Every Client will extends Sender abstract class
