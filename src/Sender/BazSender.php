@@ -6,7 +6,7 @@ namespace App\Sender;
 
 use App\Dto\CredentialsDto;
 
-class BazSender extends Sender
+final class BazSender extends Sender
 {
     public function __construct(
         private CredentialsDto $credentialsDto,
