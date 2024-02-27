@@ -10,3 +10,18 @@ Review the code as thoroughly as possible. Make suggestions for improvements if 
 
 The solution must be in the form of a Google Docs link. 
 Providing the solution in the correct form is one of the evaluation criteria.
+
+# Later edit
+
+When new Crm is needed than it should implement the CrmInterface and the new sender should extend from Sender class.
+
+Run the client code:
+```
+php index.php
+```
+
+Run the tests (composer needs to be installed already) :
+
+```
+composer test
+```
